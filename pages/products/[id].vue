@@ -15,7 +15,6 @@ useHead({
 const result = await productDetail.getProductsData(
   `https://fakestoreapi.com/products/${id}`
 );
-console.log(productDetail.error);
 </script>
 
 <template>
