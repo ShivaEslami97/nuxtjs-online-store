@@ -7,6 +7,9 @@
   html {
     font-family: "Josefin Sans", sans-serif;
   }
+  body {
+    background: linear-gradient(141deg, #fff 0%, #f7f7f7 51%, #f2f8f2 75%);
+  }
 }
 
 @layer components {
@@ -18,7 +21,7 @@
      text-white bg-white py-5;
   }
   .card {
-    @apply relative flex flex-col justify-center gap-4 shadow border border-[#bbbbbb4f] w-full mb-5 
+    @apply relative bg-white flex flex-col justify-center gap-4 shadow border border-[#bbbbbb4f] w-full mb-5 
     cursor-pointer px-3 py-2 rounded-md;
   }
   .card__title {
@@ -56,4 +59,40 @@
      leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] 
      transition duration-150 ease-in-out;
   }
+  .card__media {
+    @apply relative overflow-hidden;
+  }
+  .card__img-overlay {
+    @apply absolute top-0 left-0 flex flex-col justify-center items-center gap-1 w-full h-full z-[2]
+    opacity-0 scale-90 duration-[600] rounded-md;
+  }
+  .card__img {
+    @apply w-full h-[200px] object-contain duration-500;
+  }
+  .card__link {
+    @apply w-12 h-12 shadow-md rounded-card bg-white text-primary grid place-content-center text-center;
+  }
+}
+
+.card__img-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(228, 84, 84, 0.582),
+    rgba(239, 136, 81, 0.63) 100%
+  );
+}
+.card:hover .card__img-overlay {
+  transition-property: all;
+  transition-duration: 0.4s;
+  transition-timing-function: linear;
+  transition-delay: 0s;
+  transform: scale(1);
+  opacity: 1;
+}
+.card:hover .card__img {
+  transform: rotate(2deg) scale(1.08);
+  -webkit-transform: rotate(2deg) scale(1.02);
+  -moz-transform: rotate(1deg) scale(1.02);
+  -ms-transform: rotate(1deg) scale(1.02);
+  -o-transform: rotate(1deg) scale(1.02);
 }

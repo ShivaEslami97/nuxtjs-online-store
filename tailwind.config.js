@@ -30,6 +30,9 @@ module.exports = {
       boxShadow: {
         modal: "0 0.5rem 1rem rgb(0 0 0 / 54%)",
       },
+      borderRadius: {
+        card: "60% 40% 30% 70%/60% 30% 70% 40%",
+      },
     },
   },
   plugins: [],
