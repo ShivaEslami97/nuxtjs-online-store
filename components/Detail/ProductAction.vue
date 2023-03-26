@@ -1,17 +1,16 @@
 <script setup lang="ts">
+import { storeToRefs } from "pinia";
 import { useCartStore } from "~~/stores/cart";
-import { ProductType } from "~~/types";
+import { useProductStore } from "~~/stores/product";
 
-interface Props {
-  product: ProductType;
-}
-const props = defineProps<Props>();
+const productDetail = useProductStore();
+const { product } = storeToRefs(productDetail);
 
 const cart = useCartStore();
 const qty = ref(1);
 
 const addToCartHandler = () => {
-  cart.addToCart(props.product, qty.value);
+  cart.addToCart(product.value, qty.value);
 };
 </script>
 
@@ -25,7 +24,7 @@ const addToCartHandler = () => {
         min="1"
       />
       <button @click="addToCartHandler" class="bg-primary rounded px-2 py-2">
-        Add to Cart {{ qty }}
+        Add to Cart
       </button>
     </div>
   </div>
