@@ -17,7 +17,7 @@ const props = defineProps<Props>();
       <ul class="flex gap-2 text-white mt-3 text-lg">
         <li>Home /</li>
         <li>{{ category }} /</li>
-        <li class="text-primary">{{ title }}</li>
+        <li class="text-primary w-1/2">{{ title }}</li>
       </ul>
     </div>
   </div>
