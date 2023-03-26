@@ -38,7 +38,7 @@ export const useCartStore = defineStore("cart", {
     removeCartItem(productId: number) {
       const index = this.cartItems.findIndex((item) => item.id === productId);
       if (index !== -1) {
-        this.cartItems = this.cartItems.splice(index, 1);
+        this.cartItems.splice(index, 1);
       }
     },
   },
