@@ -6,7 +6,6 @@ interface Props {
 }
 const props = defineProps<Props>();
 </script>
-
 <template>
   <div class="flex flex-col gap-3 items-start">
     <h2 class="text-4xl">{{ title }}</h2>
