@@ -25,7 +25,7 @@
     cursor-pointer px-3 py-2 rounded-md;
   }
   .card__title {
-    @apply text-lg;
+    @apply text-lg duration-300 hover:text-primary;
   }
   .modal {
     @apply fixed top-0 left-0 z-[1055] bg-[#0a0606cc] h-full w-full flex justify-center items-center overflow-y-auto overflow-x-hidden outline-none;
