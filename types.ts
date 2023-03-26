@@ -1,5 +1,5 @@
-export interface ProductType {
-  id: string;
+interface ProductType {
+  id: number;
   title: string;
   price: number;
   description: string;
@@ -12,3 +12,8 @@ interface Rating {
   rate: number;
   count: number;
 }
+interface CartItem extends ProductType {
+  qty: number;
+}
+
+export type { ProductType, CartItem };
