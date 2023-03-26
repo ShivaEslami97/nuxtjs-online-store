@@ -9,24 +9,20 @@ interface Props {
 const props = defineProps<Props>();
 
 const cart = useCartStore();
-
-function truncateText(text: string, maxLength: number) {
-  if (text.length <= maxLength) {
-    return text;
-  } else {
-    return text.substring(0, maxLength) + "...";
-  }
-}
 </script>
 
 <template>
   <!-- CAR CARD -->
   <div class="card">
-    <NuxtImg
-      :src="product.image"
-      :alt="product.title"
-      class="w-full h-[200px] object-contain"
-    />
+    <div class="card__media">
+      <NuxtImg :src="product.image" :alt="product.title" class="card__img" />
+      <div class="card__img-overlay">
+        <NuxtLink class="card__link" :to="`/products/${product.id}`">
+          <Icon name="material-symbols:attachment" size="1.5em" />
+        </NuxtLink>
+      </div>
+    </div>
+
     <div class="p-4 flex flex-col gap-3">
       <div
         class="text-center space-y-1"
