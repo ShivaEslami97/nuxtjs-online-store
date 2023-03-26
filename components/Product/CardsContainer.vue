@@ -22,13 +22,16 @@ console.log(productData.error);
 </script>
 
 <template>
-  <div class="container mx-auto grid grid-cols-card gap-4 mt-7">
+  <div class="container mx-automt-7">
     <template v-if="!productData.error">
-      <ProductCardGrid
-        v-for="p in productData.products"
-        :key="p.id"
-        :product="p"
-      />
+      <h2 class="text-2xl font-bold my-10 text-center">BEST SELLER</h2>
+      <div class="grid grid-cols-card gap-4">
+        <ProductCardGrid
+          v-for="p in productData.products"
+          :key="p.id"
+          :product="p"
+        />
+      </div>
     </template>
 
     <h2 class="text-2xl py-4" v-else>
