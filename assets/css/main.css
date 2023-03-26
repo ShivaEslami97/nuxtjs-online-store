@@ -10,9 +10,12 @@
 }
 
 @layer components {
+  .header {
+    @apply sticky top-0 z-50 shadow-md;
+  }
   .nav {
-    @apply static flex justify-between items-center space-x-1
-     text-white bg-navDrk py-5;
+    @apply flex justify-between items-center space-x-1
+     text-white bg-white py-5;
   }
   .card {
     @apply relative flex flex-col justify-center gap-4 shadow border border-[#bbbbbb4f] w-full mb-5 
@@ -20,5 +23,37 @@
   }
   .card__title {
     @apply text-lg;
+  }
+  .modal {
+    @apply fixed top-0 left-0 z-[1055] bg-[#0a0606cc] h-full w-full flex justify-center items-center overflow-y-auto overflow-x-hidden outline-none;
+  }
+  .modal__card {
+    @apply pointer-events-none relative w-1/2 transition-all duration-300 ease-in-out min-[576px]:max-w-[500px];
+  }
+  .modal__content {
+    @apply pointer-events-auto relative 
+    flex w-full flex-col rounded-md border-none bg-white bg-clip-padding text-current shadow-modal 
+    outline-none;
+  }
+  .modal__header {
+    @apply flex flex-shrink-0 items-center justify-between rounded-t-md border-b-2
+     border-neutral-100 border-opacity-100 p-4 dark:border-opacity-50;
+  }
+  .modal__close-icon {
+    @apply box-content rounded-none border-none hover:no-underline hover:opacity-75 focus:opacity-100 
+    focus:shadow-none focus:outline-none;
+  }
+  .modal__footer {
+    @apply flex flex-shrink-0 flex-wrap items-center justify-end rounded-b-md border-t-2
+     border-neutral-100 border-opacity-100 p-4;
+  }
+  .modal__btn-close {
+    @apply inline-block rounded  px-6 pt-2.5 pb-2 text-xs font-medium uppercase
+     leading-normal transition duration-150 ease-in-out focus:outline-none;
+  }
+  .modal__btn-checkout {
+    @apply ml-1 inline-block rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase
+     leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] 
+     transition duration-150 ease-in-out;
   }
 }
