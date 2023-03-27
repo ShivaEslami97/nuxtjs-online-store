@@ -11,10 +11,11 @@ export const useCartStore = defineStore("cart", {
       return state.cartItems.reduce((total, item) => total + item.qty, 0);
     },
     cartTotal(state) {
-      return state.cartItems.reduce(
+      const total = state.cartItems.reduce(
         (total, item) => total + item.price * item.qty,
         0
       );
+      return +total.toFixed(2);
     },
   },
   actions: {
@@ -34,6 +35,17 @@ export const useCartStore = defineStore("cart", {
       console.log(this.cartItems);
     },
 
+    //
+    updateQuantity(itemId: number, qty: number) {
+      const cartItem = this.cartItems.find((ci) => ci.id === itemId);
+      if (cartItem) {
+        if (qty > 0) {
+          cartItem.qty = qty;
+        } else {
+          this.removeCartItem(itemId);
+        }
+      }
+    },
     // remove item from cart
     removeCartItem(productId: number) {
       const index = this.cartItems.findIndex((item) => item.id === productId);

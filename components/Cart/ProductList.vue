@@ -6,6 +6,11 @@ const cart = useCartStore();
 const isEmptyCart = computed(() => {
   return cart.cartItems.length === 0;
 });
+
+const updateCartItemQuantity = (id: number, qty: number) => {
+  cart.updateQuantity(id, qty);
+  console.log(qty);
+};
 </script>
 
 <template>
@@ -14,13 +19,8 @@ const isEmptyCart = computed(() => {
       <ul role="list" class="-my-6 divide-y divide-grayLtr">
         <CartProductItem
           v-for="product in cart.cartItems"
-          :id="product.id"
-          :title="product.title"
-          :price="product.price"
-          :category="product.category"
-          :image="product.image"
-          :qty="product.qty"
-          :key="product.id"
+          :product="product"
+          @update-quantity="updateCartItemQuantity"
         />
       </ul>
       <CartProductTotal :total="cart.cartTotal" />
