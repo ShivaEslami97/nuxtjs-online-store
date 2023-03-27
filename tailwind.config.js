@@ -26,6 +26,7 @@ module.exports = {
         card: "repeat(auto-fit, minmax(250px, 1fr))",
         detail: "repeat(auto-fit, minmax(33.5rem, 1fr))",
         twoCol: "100px 200px",
+        modalTwoCol: "50px 70px",
       },
       boxShadow: {
         modal: "0 0.5rem 1rem rgb(0 0 0 / 54%)",
