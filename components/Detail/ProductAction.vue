@@ -7,10 +7,16 @@ const productDetail = useProductStore();
 const { product } = storeToRefs(productDetail);
 
 const cart = useCartStore();
-const qty = ref(1);
+const quantityInput = ref(1);
+
+const isQuantityValid = computed(() => {
+  return Number.isInteger(quantityInput.value) && quantityInput.value > 0;
+});
 
 const addToCartHandler = () => {
-  cart.addToCart(product.value, qty.value);
+  if (quantityInput.value > 0) {
+    cart.addToCart(product.value, quantityInput.value);
+  }
 };
 </script>
 
@@ -20,12 +26,15 @@ const addToCartHandler = () => {
       <input
         class="border-2 border-[#e7e7e7] rounded text-center focus:outline-none"
         type="number"
-        v-model="qty"
+        v-model="quantityInput"
         min="1"
       />
       <button @click="addToCartHandler" class="bg-primary rounded px-2 py-2">
         Add to Cart
       </button>
     </div>
+    <p class="text-red-600 mt-1" v-if="!isQuantityValid">
+      Please enter a valid quantity.
+    </p>
   </div>
 </template>

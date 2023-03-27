@@ -12,6 +12,7 @@ interface Props {
 defineProps<Props>();
 
 const cart = useCartStore();
+
 const removeFromCart = (productId: number) => {
   cart.removeCartItem(productId);
 };
@@ -42,7 +43,10 @@ const removeFromCart = (productId: number) => {
         <p class="mt-1 text-sm text-gray">{{ category }}</p>
       </div>
       <div class="flex flex-1 items-end justify-between text-sm">
-        <p class="text-gray">Qty {{ qty }}</p>
+        <div class="flex">
+          <p class="text-gray">Qty {{ qty }}</p>
+        </div>
+
         <div class="flex">
           <button
             @click="removeFromCart(id)"
