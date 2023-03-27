@@ -31,7 +31,7 @@
     @apply fixed top-0 left-0 z-[1055] bg-[#0a0606cc] h-full w-full flex justify-center items-center overflow-y-auto overflow-x-hidden outline-none;
   }
   .modal__card {
-    @apply pointer-events-none relative w-1/2 transition-all duration-300 ease-in-out min-[576px]:max-w-[500px];
+    @apply pointer-events-none relative w-5/6 transition-all duration-300 ease-in-out min-[576px]:max-w-[500px] md:w-1/2;
   }
   .modal__content {
     @apply pointer-events-auto relative 
